@@ -27,5 +27,6 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/example-nodejs:$IMAGE_TAG
+#           tags: ${{ secrets.DOCKERHUB_USERNAME }}/example-nodejs:$IMAGE_TAG
+          tags: user/app:latest
 
