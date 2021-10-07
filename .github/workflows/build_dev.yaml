@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: jjjjjacky/devops
-          token: ${{ secrets.GitHub_Token }}
+          token: ${{ secrets.PAT }}
           path: my-tools
           
       - name: Build Step
