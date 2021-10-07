@@ -14,11 +14,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          path: main
       
       - name: Checkout tools
         uses: actions/checkout@v2
         with:
           repository: jjjjjacky/devops
+          token: ${{ secrets.GitHub_Token }}
+          path: my-tools
           
       - name: Build Step
         run: |
