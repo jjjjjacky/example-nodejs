@@ -7,6 +7,7 @@ name: Development
 env:
     ENV: development
     IMAGE_TAG: v${{github.run_number}}-build
+    SERVICE_NAME: ${{ github.event.repository.name }}
 jobs:
   build:
     name: Build the docker
@@ -14,6 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          path: ./{{ SERVICE_NAME }}
       
       - name: Checkout tools
         uses: actions/checkout@v2
