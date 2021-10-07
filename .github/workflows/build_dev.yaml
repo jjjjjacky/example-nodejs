@@ -31,6 +31,9 @@ jobs:
         run: |
               pwd
               ls ./
+              echo 'Echoing ${RO_REPO}'
               cd ${WORK_DIR}/${RO_REPO} && ls ./
+              echo 'Echoing ${SERVICE_NAME}
+              cd ${WORK_DIR}/${SERVICE_NAME} && ls ./
               
               
