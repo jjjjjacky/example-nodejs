@@ -8,6 +8,8 @@ env:
     ENV: development
     IMAGE_TAG: v${{github.run_number}}-build
     SERVICE_NAME: ${{ github.event.repository.name }}
+    WORK_DIR: ${{ github.workspace }}
+    RO_REPO: my-tools
 jobs:
   build:
     name: Build the docker
@@ -23,11 +25,12 @@ jobs:
         with:
           repository: jjjjjacky/devops
           token: ${{ secrets.PAT }}
-          path: my-tools
+          path: ./${{ env.RO_REPO }}
           
       - name: Build Step
         run: |
               pwd
               ls ./
+              cd ${WORK_DIR}/${RO_REPO} && ls ./
               
               
