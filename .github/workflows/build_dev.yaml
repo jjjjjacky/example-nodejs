@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-    - development
+    - citest
 
 name: Development
 env:
@@ -14,18 +14,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Login to DockerHub
-        uses: docker/login-action@v1 
+      
+      - name: Checkout tools
+        uses: actions/checkout@v2
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Build and Push
-        uses: docker/build-push-action@v2
-        with:
-          context: ./
-          file: ./Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/example-nodejs:${{ env.IMAGE_TAG}}
+          repository: jjjjjacky/devops
+          
+      - name: Build Step
+        run: |
+              pwd
+              ls ./
+            
+          
 
